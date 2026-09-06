@@ -2,7 +2,7 @@
   "id": "./",
   "name": "AIR JUDGE for DAIKIN AN566ARP-W",
   "short_name": "AIR JUDGE",
-  "description": "AN566ARP-W専用。APIを使わず温湿度・体感・目的・実測ログから運転を判定するローカルPWA。",
+  "description": "AN566ARP-W専用。現在の実運転・稼働時間・温湿度の推移まで記録し、湿度の再上昇も判定するローカルPWA。",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

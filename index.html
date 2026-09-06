@@ -103,6 +103,20 @@
     html[data-theme="dark"] .result-hero{background:linear-gradient(145deg,#154852,#0b7180)}
     html[data-theme="dark"] .energy-box{border-color:#2a383d}
     html[data-theme="dark"] .source{border-color:#253136}
+
+    /* v4.0 operation tracking + clearer history */
+    .quick-row{display:flex;align-items:center;gap:10px;margin-top:9px}.quick-row .subbtn{width:auto;flex:none;padding:9px 12px}.quick-note{font-size:9px;color:var(--muted);line-height:1.45}
+    .op-heading{display:flex;align-items:center;gap:7px}.important-pill{display:inline-flex;align-items:center;padding:3px 6px;border-radius:999px;background:var(--warning);color:#8a6826;font-size:8px;font-weight:850}
+    .active-run{margin:8px 0 10px;padding:13px;border-radius:17px;background:linear-gradient(135deg,#edf7f7,#f8fbfb);border:1px solid #d4e9eb}.active-run.inactive{background:#f7f9f9;border-color:var(--line)}.active-run-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.active-run b{font-size:12px}.active-run span{font-size:9px;color:var(--muted);line-height:1.45}.active-run-main{margin-top:5px;font-size:15px;font-weight:820;letter-spacing:-.02em}.active-run-meta{margin-top:5px;font-size:9px;color:var(--muted);line-height:1.55}.textbtn{background:transparent;color:var(--muted);font-size:9px;font-weight:800;padding:2px 0}.textbtn.danger{color:#a85a50}
+    .op-grid{display:grid;grid-template-columns:1.15fr .8fr .8fr .85fr;gap:7px}.op-grid .field{padding:10px}.op-grid .field label{font-size:8px}.op-grid .field input,.op-grid .field select{font-size:11px}.run-start{margin-top:8px;background:var(--accent-soft);color:var(--accent-deep);border:1px solid #cde6e8}
+    .auto-save-note{margin-top:10px;padding:9px 11px;border-radius:13px;background:var(--good);font-size:9px;color:#326b58;line-height:1.5;font-weight:700}
+    .run-status{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:12px;border-radius:16px;background:#f7f9f9;border:1px solid var(--line)}.run-status strong{display:block;font-size:13px}.run-status p{margin:4px 0 0;font-size:10px;line-height:1.55;color:var(--muted)}.status-badge{flex:none;padding:6px 8px;border-radius:999px;font-size:8px;font-weight:850;background:var(--accent-soft);color:var(--accent-deep)}.status-badge.warn{background:var(--warning);color:#8a6826}.status-badge.bad{background:var(--danger);color:#a04c43}.status-badge.good{background:var(--good);color:#2c745b}
+    .run-insight-card{display:none}.run-insight-card.show{display:block}.run-detail{margin-top:9px;font-size:10px;line-height:1.6;color:var(--muted)}
+    .history-section-title{display:flex;justify-content:space-between;align-items:center;margin:18px 3px 8px}.history-section-title b{font-size:12px}.history-section-title span{font-size:9px;color:var(--muted)}
+    .run-card{padding:14px;border:1px solid var(--line);border-radius:19px;background:#fff;margin:9px 0}.run-card.active{border-color:#bcdde0;background:linear-gradient(135deg,#f2fbfb,#fff)}.run-card-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.run-card-title{font-size:13px;font-weight:820}.run-card-time{font-size:9px;color:var(--muted);margin-top:3px}.run-card-summary{margin-top:9px;font-size:10px;line-height:1.6;color:var(--muted)}
+    .log-route{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:7px;margin:10px 0}.route-box{padding:9px;border-radius:12px;background:#f5f8f8}.route-box small{display:block;font-size:8px;color:var(--muted)}.route-box b{display:block;font-size:10px;margin-top:3px;line-height:1.35}.route-arrow{color:var(--muted);font-size:12px}.log-reason{font-size:10px;color:var(--muted);line-height:1.55}.saved-label{display:inline-flex;padding:4px 6px;border-radius:999px;background:var(--good);color:#2c745b;font-size:8px;font-weight:850}
+    @media(max-width:520px){.op-grid{grid-template-columns:1fr 1fr}.actions{grid-template-columns:1fr 1fr}.actions .share{grid-column:1/-1}.quick-row{align-items:flex-start}.run-status{display:block}.status-badge{display:inline-block;margin-top:8px}}
+    html[data-theme="dark"] .active-run{background:linear-gradient(135deg,#142a2e,#132124);border-color:#254147}html[data-theme="dark"] .active-run.inactive{background:#151e21;border-color:#263439}html[data-theme="dark"] .important-pill{background:#392f1d;color:#ead7a3}html[data-theme="dark"] .auto-save-note{background:#173229;color:#9ed5c2}html[data-theme="dark"] .run-status,html[data-theme="dark"] .route-box{background:#151e21;border-color:#263439}html[data-theme="dark"] .run-card{background:#1a2427;border-color:#2a383d}html[data-theme="dark"] .run-card.active{background:linear-gradient(135deg,#142a2e,#182326);border-color:#2f555c}html[data-theme="dark"] .status-badge.warn{background:#392f1d;color:#ead7a3}html[data-theme="dark"] .status-badge.bad{background:#351f20;color:#f0a6a0}html[data-theme="dark"] .status-badge.good,html[data-theme="dark"] .saved-label{background:#173229;color:#9ed5c2}
   </style>
 </head>
 <body>
@@ -137,14 +151,25 @@
         <div class="section-label">今日の目的</div>
         <div class="chips" data-group="goal"><button class="chip active" data-value="auto">おまかせ</button><button class="chip" data-value="humidity">湿度だけ下げる</button><button class="chip" data-value="coolfast">早く涼しく</button><button class="chip" data-value="eco">電気代優先</button><button class="chip" data-value="sleep">寝るとき</button><button class="chip" data-value="reset">短時間で改善</button></div>
 
+        <div class="quick-row"><button class="subbtn" id="quickRecordBtn">現在値だけ記録</button><div class="quick-note">現在の運転中の推移に追加。<br>判定しなくても履歴に残せます。</div></div>
+
+        <div class="section-label op-heading">現在の運転 <span class="important-pill">判定に重要</span></div>
+        <div class="active-run inactive" id="activeRunPanel"><div class="active-run-top"><div><b id="activeRunLabel">運転設定が未記録</b><div class="active-run-main" id="activeRunMain">—</div></div><button class="textbtn danger" id="stopCurrentRunBtn" style="display:none">終了</button></div><div class="active-run-meta" id="activeRunMeta">設定を変えたら下の「この設定に変えた → 記録」を1回押してください。</div></div>
+        <div class="op-grid">
+          <div class="field"><label>実際の運転</label><select id="currentMode"><option value="off">停止中</option><option value="cool">冷房</option><option value="premium">プレミアム冷房</option><option value="dry">さらら除湿</option><option value="drycool">除湿冷房</option><option value="eco">節電自動運転</option><option value="auto">自動運転</option></select></div>
+          <div class="field"><label>設定温度</label><input id="currentSetTemp" inputmode="decimal" placeholder="—"></div>
+          <div class="field"><label>設定湿度</label><select id="currentSetRh"><option value="">—</option><option value="50">50%</option><option value="55">55%</option><option value="60">60%</option></select></div>
+          <div class="field"><label>風量</label><select id="currentFan"><option value="auto">自動</option><option value="quiet">しずか</option><option value="weak">弱</option><option value="strong">強</option></select></div>
+        </div>
+        <button class="subbtn run-start" id="startCurrentRunBtn">この設定に変えた → 記録</button>
+        <div class="disclaimer">AIR JUDGEはエアコン本体の設定を自動取得できません。設定変更時だけ記録すると、以後は経過時間を自動計算し、同じ設定での湿度推移まで判定します。</div>
+
         <div style="margin-top:15px"><div class="toggle-row"><div><b>ベタつきを感じる</b><span>数値より体感を重く見て除湿側へ補正します</span></div><button class="switch" id="clammy" aria-label="ベタつきを感じる"></button></div></div>
-        <button class="linkbtn" id="advancedBtn">＋ 詳細条件を入れる</button>
+        <button class="linkbtn" id="advancedBtn">＋ 外気・換気条件を入れる</button>
         <div class="advanced" id="advanced">
           <div class="advanced-grid">
             <div class="field"><label>外気温（任意）</label><input id="outTemp" inputmode="decimal" placeholder="例 29"></div>
             <div class="field"><label>外気湿度（任意）</label><input id="outRh" inputmode="numeric" placeholder="例 75"></div>
-            <div class="field"><label>現在の運転</label><select id="currentMode"><option value="off">停止中</option><option value="cool">冷房</option><option value="premium">プレミアム冷房</option><option value="dry">さらら除湿</option><option value="drycool">除湿冷房</option><option value="eco">節電自動運転</option><option value="auto">自動運転</option></select></div>
-            <div class="field"><label>変更してから</label><select id="minutes"><option value="0">未変更 / 不明</option><option value="10">10分</option><option value="20">20分</option><option value="30">30分</option><option value="60">1時間</option><option value="120">2時間以上</option></select></div>
           </div>
           <div class="toggle-row"><div><b>窓・換気扇が動いている</b><span>高湿度時は外気流入の影響を考慮します</span></div><button class="switch" id="ventOpen" aria-label="窓・換気扇"></button></div>
         </div>
@@ -163,22 +188,25 @@
           <div class="reason"><b>この判断にした理由</b><div id="resultReason"></div><ul class="bullets" id="resultBullets"></ul></div>
           <div class="energy-row"><div class="energy-box"><small>概算電気代 / 1時間</small><strong id="energyCost">—</strong></div><div class="energy-box"><small>目標ゾーン</small><strong id="target">23–25℃ / 50–60%</strong></div></div>
           <div class="disclaimer" id="energyNote"></div>
-          <div class="actions"><button class="btn primary" id="saveBtn">ログに保存</button><button class="btn" id="recheckBtn">30分後に再確認</button><button class="btn share" id="shareBtn">結果を共有</button></div>
-          <div class="feedback" id="feedback"><div class="section-label" style="margin-top:0">使ってみて、どうだった？</div><div class="chips"><button class="chip" data-feedback="comfortable">快適</button><button class="chip" data-feedback="cold">寒い</button><button class="chip" data-feedback="hot">暑い</button><button class="chip" data-feedback="humid">まだジメジメ</button></div></div>
+          <div class="auto-save-note">✓ この判定は履歴へ自動保存済み。下のボタンは「実際にエアコンをこの設定へ変えた」ことを記録するボタンです。</div>
+          <div class="actions"><button class="btn primary" id="applyResultBtn">この設定に変えた → 記録</button><button class="btn" id="recheckBtn">30分後に再確認</button><button class="btn share" id="shareBtn">結果を共有</button></div>
+          <div class="feedback show" id="feedback"><div class="section-label" style="margin-top:0">使ってみて、どうだった？</div><div class="chips"><button class="chip" data-feedback="comfortable">快適</button><button class="chip" data-feedback="cold">寒い</button><button class="chip" data-feedback="hot">暑い</button><button class="chip" data-feedback="humid">まだジメジメ</button></div></div>
         </div>
       </div>
 
-      <div class="card delta-card" id="deltaCard"><div class="card-title"><h3>前回ログからの変化</h3><div class="hint" id="deltaTime">—</div></div><div class="delta-grid"><div class="delta"><small>室温</small><strong id="deltaTemp">—</strong></div><div class="delta"><small>湿度</small><strong id="deltaRh">—</strong></div><div class="delta"><small>前回運転</small><strong id="deltaMode" style="font-size:11px">—</strong></div></div></div>
+      <div class="card run-insight-card" id="runInsightCard"><div class="card-title"><h3>現在運転の評価</h3><div class="hint" id="runInsightTime">—</div></div><div class="run-status"><div><strong id="runInsightTitle">—</strong><p id="runInsightText">—</p></div><span class="status-badge" id="runInsightBadge">—</span></div><div class="delta-grid" style="margin-top:9px"><div class="delta"><small>開始から室温</small><strong id="runDeltaTemp">—</strong></div><div class="delta"><small>開始から湿度</small><strong id="runDeltaRh">—</strong></div><div class="delta"><small>絶対湿度</small><strong id="runDeltaAh">—</strong></div></div><div class="run-detail" id="runInsightDetail"></div></div>
     </section>
 
     <section id="page-logs" class="page">
       <div class="hero"><div class="eyebrow">YOUR HOME DATA</div><h2>この家のログ。</h2><p>一般論ではなく、実際にこの家で効いた運転を積み上げます。</p></div>
       <div class="card">
-        <div class="card-title"><h3>学習サマリー</h3><div class="hint">端末内のみ保存</div></div>
-        <div class="stats-grid"><div class="stat"><strong id="logCount">0</strong><small>保存ログ</small></div><div class="stat"><strong id="comfortZone">—</strong><small>快適湿度中央値</small></div><div class="stat"><strong id="comfortRate">—</strong><small>快適フィードバック率</small></div></div>
-        <div class="chart-wrap" id="chartWrap"><div class="chart-empty">ログが増えると推移を表示します</div></div><div class="legend"><span class="t">室温</span><span class="h">湿度</span></div>
+        <div class="card-title"><h3>学習サマリー</h3><div class="hint">判定すると自動保存</div></div>
+        <div class="stats-grid"><div class="stat"><strong id="logCount">0</strong><small>判定履歴</small></div><div class="stat"><strong id="comfortZone">—</strong><small>快適湿度中央値</small></div><div class="stat"><strong id="comfortRate">—</strong><small>快適フィードバック率</small></div></div>
+        <div class="chart-wrap" id="chartWrap"><div class="chart-empty">判定が増えると推移を表示します</div></div><div class="legend"><span class="t">室温</span><span class="h">湿度</span></div>
       </div>
-      <div id="logsList"></div>
+      <div class="history-section-title"><b>現在の運転</b><span>設定変更時刻から自動計算</span></div><div id="historyActiveRun"></div>
+      <div class="history-section-title"><b>運転履歴</b><span>実際に使った設定</span></div><div id="runHistoryList"></div>
+      <div class="history-section-title"><b>判定履歴</b><span>判定ごとに自動保存</span></div><div id="logsList"></div>
     </section>
 
     <section id="page-model" class="page">
@@ -195,7 +223,7 @@
           <div class="feature"><b>新・おやすみ運転</b>睡眠目的では急な変更より安定を優先。</div>
         </div>
       </div>
-      <div class="card"><div class="card-title"><h3>判定の原則</h3><div class="hint">ルールは固定 + 限定学習</div></div><ul class="bullets" style="font-size:12px;color:var(--ink)"><li>暑さが主問題なら冷房系を先に使う。</li><li>室温が十分低く、湿度だけ高いならさらら除湿。</li><li>暑さと湿気が同時なら除湿冷房を優先候補にする。</li><li>快適域なら「変更しない」を正式な答えにする。</li><li>運転変更直後は、緊急性がなければ頻繁な再変更を避ける。</li><li>快適・寒い・暑い・ジメジメの実績で目標ゾーンだけを限定補正する。</li></ul></div>
+      <div class="card"><div class="card-title"><h3>判定の原則</h3><div class="hint">ルールは固定 + 限定学習</div></div><ul class="bullets" style="font-size:12px;color:var(--ink)"><li>暑さが主問題なら冷房系を先に使う。</li><li>室温が十分低く、湿度だけ高いならさらら除湿。</li><li>暑さと湿気が同時なら除湿冷房を優先候補にする。</li><li>快適域なら「変更しない」を正式な答えにする。</li><li>現在の実運転と経過時間を記録し、変更直後は緊急性がなければ頻繁な再変更を避ける。</li><li>同じ設定で一度下がった湿度が再上昇した場合、絶対湿度も確認して「見かけの上昇」か実際の水分増加かを分ける。</li><li>快適・寒い・暑い・ジメジメの実績で目標ゾーンだけを限定補正する。</li></ul></div>
       <div class="card"><div class="card-title"><h3>メーカー情報</h3><div class="hint">AIR JUDGEは非公式</div></div>
         <a class="source" href="https://www.free.dtnet.daikin.co.jp/DT-NET/torisetu/result?conditions=AN566ARP-W&searchAgeFrom=ALL&searchAgeTo=ALL&suesetuFlg=0&tAuth=free&torisetuFlg=1&type=0" target="_blank" rel="noopener">ダイキン DT-NET：AN566ARP-W<span>機種・発売年月・取扱説明書</span></a>
         <a class="source" href="https://ec.daikinaircon.com/ecatalog/DKCD001/" target="_blank" rel="noopener">ダイキン ルームエアコン カタログ<span>Rシリーズ2026モデルの搭載機能</span></a>
@@ -209,7 +237,7 @@
       <div class="card"><div class="card-title"><h3>表示テーマ</h3><div class="hint">端末設定にも連動</div></div><div class="theme-segment" id="themeSegment"><button class="theme-choice active" data-theme-choice="system">自動</button><button class="theme-choice" data-theme-choice="light">ライト</button><button class="theme-choice" data-theme-choice="dark">ダーク</button></div><div class="appearance-preview"><div><b id="themeResolvedLabel">端末設定に合わせる</b><span id="themeResolvedDetail">現在の表示を自動判定します</span></div><span id="themeModeBadge">SYSTEM</span></div></div>
       <div class="card"><div class="card-title"><h3>電気代</h3></div><div class="field"><label>電気料金単価（円 / kWh）</label><input id="priceKwh" type="number" step="0.1" value="31"></div><div class="disclaimer">概算用です。燃料費調整額などを含む請求額の厳密計算ではありません。</div></div>
       <div class="card"><div class="card-title"><h3>ベース快適ゾーン</h3><div class="hint">実績で限定補正</div></div><div class="settings-grid-two"><div class="field"><label>目標室温</label><input id="targetTempSetting" type="number" step="0.1" value="24"></div><div class="field"><label>目標湿度</label><input id="targetRhSetting" type="number" step="1" value="55"></div></div><div class="field"><label>再確認まで</label><select id="recheckMinutes"><option value="15">15分</option><option value="30" selected>30分</option><option value="45">45分</option><option value="60">60分</option></select></div></div>
-      <div class="card"><div class="card-title"><h3>ホーム画面アプリ</h3><div class="hint" id="installState">PWA</div></div><button class="subbtn" id="installHelpBtn">ホーム画面への追加方法</button><div class="install-guide" id="installGuide">iPhoneではSafariでAIR JUDGEを開き、共有ボタン →「ホーム画面に追加」→「追加」。専用アイコンから全画面に近い表示で起動でき、読み込み済みならオフラインでも判定・ログ確認ができます。</div><div class="disclaimer" style="margin-top:9px">AIR JUDGE v3.0 · API不使用 · データはこの端末内</div></div>
+      <div class="card"><div class="card-title"><h3>ホーム画面アプリ</h3><div class="hint" id="installState">PWA</div></div><button class="subbtn" id="installHelpBtn">ホーム画面への追加方法</button><div class="install-guide" id="installGuide">iPhoneではSafariでAIR JUDGEを開き、共有ボタン →「ホーム画面に追加」→「追加」。専用アイコンから全画面に近い表示で起動でき、読み込み済みならオフラインでも判定・ログ確認ができます。</div><div class="disclaimer" style="margin-top:9px">AIR JUDGE v4.0 · API不使用 · データはこの端末内</div></div>
       <div class="card"><div class="card-title"><h3>データ</h3><div class="hint">端末内保存</div></div><div class="data-actions"><button class="subbtn" id="exportJsonBtn">JSON書き出し</button><button class="subbtn" id="exportCsvBtn">CSV書き出し</button></div><div class="field"><label>バックアップを読み込む</label><input id="importFile" type="file" accept="application/json,.json"></div><button class="subbtn danger" id="resetBtn">ログと学習をすべて削除</button><div class="disclaimer">外部サーバーやOpenAI APIへデータを送信しません。</div></div>
     </section>
   </main>
@@ -217,7 +245,7 @@
 
 <nav aria-label="メインナビゲーション">
   <button class="navbtn active" data-page="judge"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="7" stroke-width="1.8"/><path d="M12 8v4l2.5 1.5" stroke-width="1.8" stroke-linecap="round"/></svg>判定</button>
-  <button class="navbtn" data-page="logs"><svg viewBox="0 0 24 24" fill="none"><path d="M5 18V10M12 18V6M19 18v-4" stroke-width="1.8" stroke-linecap="round"/></svg>ログ</button>
+  <button class="navbtn" data-page="logs"><svg viewBox="0 0 24 24" fill="none"><path d="M5 18V10M12 18V6M19 18v-4" stroke-width="1.8" stroke-linecap="round"/></svg>履歴</button>
   <button class="navbtn" data-page="model"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="10" rx="2" stroke-width="1.8"/><path d="M7 14h10" stroke-width="1.8" stroke-linecap="round"/></svg>機種</button>
   <button class="navbtn" data-page="settings"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke-width="1.8"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2M6.3 6.3l1.4 1.4M16.3 16.3l1.4 1.4M17.7 6.3l-1.4 1.4M7.7 16.3l-1.4 1.4" stroke-width="1.8" stroke-linecap="round"/></svg>設定</button>
 </nav>
@@ -234,11 +262,14 @@
   const defaults={priceKwh:31,targetTemp:24,targetRh:55,recheckMinutes:30};
   const state={
     feel:'neutral',goal:'auto',clammy:false,ventOpen:false,lastResult:null,lastSavedId:null,
-    settings:{...defaults,...store.get('aj_settings',{})},logs:store.get('aj_logs',[]),reminder:store.get('aj_reminder',null),theme:store.get('aj_theme','system')
+    settings:{...defaults,...store.get('aj_settings',{})},logs:store.get('aj_logs',[]),reminder:store.get('aj_reminder',null),theme:store.get('aj_theme','system'),
+    activeRun:store.get('aj_active_run',null),runHistory:store.get('aj_run_history',[])
   };
   $('#priceKwh').value=state.settings.priceKwh;$('#targetTempSetting').value=state.settings.targetTemp;$('#targetRhSetting').value=state.settings.targetRh;$('#recheckMinutes').value=state.settings.recheckMinutes;
 
   const modeNames={off:'停止中',cool:'冷房',premium:'プレミアム冷房',dry:'さらら除湿',drycool:'除湿冷房',eco:'節電自動運転',auto:'自動運転'};
+  const modeCodes={'冷房':'cool','プレミアム冷房':'premium','さらら除湿':'dry','除湿冷房':'drycool','節電自動運転':'eco','自動運転':'auto'};
+  const fanNames={auto:'自動',quiet:'しずか',weak:'弱',strong:'強'};
   const feedbackNames={comfortable:'快適',cold:'寒い',hot:'暑い',humid:'まだジメジメ'};
   const themeMedia=window.matchMedia('(prefers-color-scheme: dark)');
   function resolvedTheme(pref=state.theme){return pref==='system'?(themeMedia.matches?'dark':'light'):pref;}
@@ -255,153 +286,148 @@
     if(badge)badge.textContent=pref.toUpperCase();if(persist)store.set('aj_theme',pref);
   }
   function clamp(x,a,b){return Math.max(a,Math.min(b,x));}
-  function num(id,fallback=null){const x=parseFloat($(id).value);return Number.isFinite(x)?x:fallback;}
+  function num(id,fallback=null){const el=$(id);if(!el)return fallback;const x=parseFloat(el.value);return Number.isFinite(x)?x:fallback;}
   function median(arr){if(!arr.length)return null;const s=[...arr].sort((a,b)=>a-b),m=Math.floor(s.length/2);return s.length%2?s[m]:(s[m-1]+s[m])/2;}
-  function toast(msg){const el=$('#toast');el.textContent=msg;el.classList.add('show');clearTimeout(window._ajToast);window._ajToast=setTimeout(()=>el.classList.remove('show'),1700);}
+  function toast(msg){const el=$('#toast');el.textContent=msg;el.classList.add('show');clearTimeout(window._ajToast);window._ajToast=setTimeout(()=>el.classList.remove('show'),1900);}
   function signed(v,digits=1,suffix=''){const n=+v;return `${n>0?'+':''}${n.toFixed(digits)}${suffix}`;}
+  function escapeHtml(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
   function dewPoint(t,rh){const a=17.62,b=243.12,g=Math.log(clamp(rh,.1,100)/100)+(a*t)/(b+t);return (b*g)/(a-g);}
   function absoluteHumidity(t,rh){const e=(rh/100)*6.112*Math.exp((17.67*t)/(t+243.5));return 216.7*e/(273.15+t);}
+  function sample(t,rh,at=new Date().toISOString()){return {at,temp:+t.toFixed(1),rh:Math.round(rh),ah:+absoluteHumidity(t,rh).toFixed(1)};}
+  function elapsedMinutes(startedAt,end=Date.now()){const ms=end-new Date(startedAt).getTime();return Math.max(0,Math.round(ms/60000));}
+  function formatDuration(mins){if(mins<60)return `${Math.max(1,mins)}分`;const h=Math.floor(mins/60),m=mins%60;return m?`${h}時間${m}分`:`${h}時間`;}
   function airSnapshot(t,rh){
     const dp=dewPoint(t,rh),ah=absoluteHumidity(t,rh);let label='快適',detail='大きく触る必要は少なめ';
-    if(rh<=43) {label='乾燥気味';detail='除湿は不要';}
+    if(rh<=43){label='乾燥気味';detail='除湿は不要';}
     else if(t>=28){label='暑い';detail=rh>=60?'暑さと湿気が強い':'まず温度を下げたい';}
     else if(dp>=20||rh>=70){label='かなりジメジメ';detail='除湿優先度が高い';}
     else if(dp>=17||rh>=60){label='ややジメジメ';detail='湿度が少し高め';}
     else if(t<=22.5){label='涼しめ';detail='冷やしすぎに注意';}
     return {dp,ah,label,detail};
   }
-  function refreshAirReadout(){const t=num('#temp'),rh=num('#rh');if(t===null||rh===null)return;const a=airSnapshot(t,rh);$('#airState').textContent=a.label;$('#airDetail').textContent=a.detail;$('#dewPoint').textContent=`露点 ${a.dp.toFixed(1)}℃`;$('#absHumidity').textContent=`絶対湿度 ${a.ah.toFixed(1)}g/m³`;renderDelta();}
+  function currentAir(){const t=num('#temp'),rh=num('#rh');return t===null||rh===null?null:{temp:t,rh,air:airSnapshot(t,rh)};}
+  function runSettingText(run){if(!run)return '—';const parts=[];if(Number.isFinite(run.setTemp))parts.push(`${run.setTemp}℃`);if(Number.isFinite(run.setRh))parts.push(`湿度${run.setRh}%`);if(run.fan&&fanNames[run.fan])parts.push(`風量${fanNames[run.fan]}`);return parts.length?parts.join(' · '):'設定値なし';}
+  function persistRuns(){store.set('aj_active_run',state.activeRun);store.set('aj_run_history',state.runHistory.slice(0,60));}
+  function syncRunForm(){const r=state.activeRun;if(!r)return;$('#currentMode').value=r.mode||'off';$('#currentSetTemp').value=Number.isFinite(r.setTemp)?r.setTemp:'';$('#currentSetRh').value=Number.isFinite(r.setRh)?String(r.setRh):'';$('#currentFan').value=r.fan||'auto';}
+  function addRunSample(t,rh,force=false){
+    if(!state.activeRun)return false;const s=sample(t,rh),arr=state.activeRun.samples||(state.activeRun.samples=[]),last=arr[arr.length-1];
+    if(!force&&last&&Date.now()-new Date(last.at).getTime()<2*60000&&Math.abs(last.temp-s.temp)<.05&&last.rh===s.rh)return false;
+    arr.push(s);state.activeRun.samples=arr.slice(-80);persistRuns();renderActiveRun();renderRunInsight();return true;
+  }
+  function finishActiveRun(reason='設定変更'){
+    if(!state.activeRun)return;const a=currentAir();if(a)addRunSample(a.temp,a.rh,true);const done={...state.activeRun,endedAt:new Date().toISOString(),endReason:reason};state.runHistory.unshift(done);state.runHistory=state.runHistory.slice(0,60);state.activeRun=null;persistRuns();renderActiveRun();renderRunInsight();renderLogs();
+  }
+  function startRun(mode,setTemp,setRh,fan='auto',source='manual'){
+    const a=currentAir();if(!a){toast('先に室温・湿度を入力して');return false;}if(mode==='off'){finishActiveRun('停止');toast('運転終了を記録した');return true;}
+    if(state.activeRun)finishActiveRun('設定変更');
+    const now=new Date().toISOString();state.activeRun={id:Date.now(),mode,setTemp:Number.isFinite(setTemp)?+setTemp:null,setRh:Number.isFinite(setRh)?Math.round(setRh):null,fan:fan||'auto',startedAt:now,source,samples:[sample(a.temp,a.rh,now)]};persistRuns();syncRunForm();renderActiveRun();renderRunInsight();renderLogs();toast(`${modeNames[mode]||'運転'}の開始を記録した`);return true;
+  }
+  function startManualRun(){const mode=$('#currentMode').value,setTemp=num('#currentSetTemp'),setRh=num('#currentSetRh'),fan=$('#currentFan').value;startRun(mode,setTemp,setRh,fan,'manual');}
+  function quickRecord(){const a=currentAir();if(!a){toast('室温・湿度を確認して');return;}if(!state.activeRun){toast('先に現在の運転を記録して');return;}addRunSample(a.temp,a.rh,true);toast(`${a.temp.toFixed(1)}℃ / ${Math.round(a.rh)}% を記録した`);}
+  function analyzeRun(t,rh){
+    const r=state.activeRun;if(!r)return {has:false};const now=sample(t,rh),arr=[...(r.samples||[])];if(!arr.length)arr.push(now);const all=[...arr,now],start=all[0],mins=elapsedMinutes(r.startedAt),minRh=all.reduce((a,b)=>b.rh<a.rh?b:a),minAh=all.reduce((a,b)=>b.ah<a.ah?b:a),dt=now.temp-start.temp,drh=now.rh-start.rh,dah=now.ah-start.ah,reboundRh=now.rh-minRh.rh,reboundAh=now.ah-minRh.ah;
+    const early=mins<20,rebound=mins>=25&&reboundRh>=5&&reboundAh>=0.5,notMaintaining=mins>=40&&Number.isFinite(r.setRh)&&now.rh>=r.setRh+5&&reboundRh>=3,improving=drh<=-3||dah<=-.5;
+    let status='データ蓄積中',kind='neutral',text='同じ設定での変化を見ています。';
+    if(early){status='まだ判断が早い';kind='warn';text=`変更から${formatDuration(mins)}。大きな異常がなければ20〜30分は反応を見ます。`;}
+    else if(rebound){status='湿度が再上昇';kind='bad';text=`同じ設定で一度${minRh.rh}%まで下がった後、${now.rh}%まで${reboundRh}%pt上昇。絶対湿度も${signed(reboundAh,1,'g/m³')}増えています。`;}
+    else if(notMaintaining){status='設定値を維持できていない';kind='bad';text=`設定湿度${r.setRh}%に対し現在${now.rh}%。設定を一段強める検討が必要です。`;}
+    else if(improving){status='効いている';kind='good';text=`開始時から湿度${signed(drh,0,'%')}、絶対湿度${signed(dah,1,'g/m³')}。狙った方向へ動いています。`;}
+    else if(mins>=40){status='ほぼ横ばい';kind='warn';text='十分な運転時間に対して変化が小さめです。設定と目的が合っているか再判定します。';}
+    return {has:true,run:r,now,start,mins,minRh,minAh,dt,drh,dah,reboundRh,reboundAh,early,rebound,notMaintaining,improving,status,kind,text};
+  }
+  function renderActiveRun(){
+    const p=$('#activeRunPanel'),label=$('#activeRunLabel'),main=$('#activeRunMain'),meta=$('#activeRunMeta'),stop=$('#stopCurrentRunBtn');if(!p)return;
+    if(!state.activeRun){p.classList.add('inactive');label.textContent='運転設定が未記録';main.textContent='—';meta.textContent='設定を変えたら下の「この設定に変えた → 記録」を1回押してください。';stop.style.display='none';return;}
+    const r=state.activeRun,mins=elapsedMinutes(r.startedAt);p.classList.remove('inactive');label.textContent=`${modeNames[r.mode]||'運転中'} · ${formatDuration(mins)}稼働`;main.textContent=runSettingText(r);meta.textContent=`開始 ${new Date(r.startedAt).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'})} · 記録${(r.samples||[]).length}点 · 経過時間は自動計算`;stop.style.display='block';
+  }
+  function renderRunInsight(){
+    const card=$('#runInsightCard'),a=currentAir();if(!card||!a||!state.activeRun){card?.classList.remove('show');return;}const e=analyzeRun(a.temp,a.rh);card.classList.add('show');$('#runInsightTime').textContent=`${modeNames[e.run.mode]} · ${formatDuration(e.mins)}`;$('#runInsightTitle').textContent=e.status;$('#runInsightText').textContent=e.text;const badge=$('#runInsightBadge');badge.textContent=e.kind==='good'?'良好':e.kind==='bad'?'要変更':e.kind==='warn'?'様子見':'分析中';badge.className=`status-badge ${e.kind==='good'?'good':e.kind==='bad'?'bad':e.kind==='warn'?'warn':''}`;$('#runDeltaTemp').textContent=signed(e.dt,1,'℃');$('#runDeltaRh').textContent=signed(e.drh,0,'%');$('#runDeltaAh').textContent=signed(e.dah,1,'g/m³');$('#runDeltaTemp').className=e.dt<0?'down':e.dt>0?'up':'';$('#runDeltaRh').className=e.drh<0?'down':e.drh>0?'up':'';$('#runDeltaAh').className=e.dah<0?'down':e.dah>0?'up':'';$('#runInsightDetail').textContent=e.rebound?`最低 ${e.minRh.temp.toFixed(1)}℃ / ${e.minRh.rh}%（絶対湿度 ${e.minRh.ah}g/m³）から再上昇。これは「湿度戻り」と断定せず、外気流入・室内発湿も候補として扱います。`:`開始 ${e.start.temp.toFixed(1)}℃ / ${e.start.rh}% → 現在 ${e.now.temp.toFixed(1)}℃ / ${e.now.rh}%。相対湿度だけでなく絶対湿度も判定に使用。`;
+  }
+  function refreshAirReadout(){const a=currentAir();if(!a)return;$('#airState').textContent=a.air.label;$('#airDetail').textContent=a.air.detail;$('#dewPoint').textContent=`露点 ${a.air.dp.toFixed(1)}℃`;$('#absHumidity').textContent=`絶対湿度 ${a.air.ah.toFixed(1)}g/m³`;renderRunInsight();}
 
   function learnedTargets(){
-    let t=clamp(+state.settings.targetTemp||24,23,26),h=clamp(+state.settings.targetRh||55,50,60);
-    const fb=state.logs.filter(x=>x.feedback),comfy=fb.filter(x=>x.feedback==='comfortable');
-    if(comfy.length>=2){const mt=median(comfy.map(x=>x.temp)),mh=median(comfy.map(x=>x.rh));t=clamp((t+mt)/2,23,26);h=clamp((h+mh)/2,50,60);}
-    const recent=fb.slice(0,12),cold=recent.filter(x=>x.feedback==='cold').length,hot=recent.filter(x=>x.feedback==='hot').length,humid=recent.filter(x=>x.feedback==='humid').length;
-    t=clamp(t+Math.min(cold,3)*.15-Math.min(hot,3)*.15,23,26);h=clamp(h-Math.min(humid,3),50,60);
-    return {temp:+t.toFixed(1),rh:Math.round(h)};
+    let t=clamp(+state.settings.targetTemp||24,23,26),h=clamp(+state.settings.targetRh||55,50,60);const fb=state.logs.filter(x=>x.feedback),comfy=fb.filter(x=>x.feedback==='comfortable');
+    if(comfy.length>=2){const mt=median(comfy.map(x=>x.temp)),mh=median(comfy.map(x=>x.rh));t=clamp((t+mt)/2,23,26);h=clamp((h+mh)/2,50,60);}const recent=fb.slice(0,12),cold=recent.filter(x=>x.feedback==='cold').length,hot=recent.filter(x=>x.feedback==='hot').length,humid=recent.filter(x=>x.feedback==='humid').length;t=clamp(t+Math.min(cold,3)*.15-Math.min(hot,3)*.15,23,26);h=clamp(h-Math.min(humid,3),50,60);return {temp:+t.toFixed(1),rh:Math.round(h)};
   }
-
   function energyEstimate(mode,temp,rh,outTemp,goal){
-    const price=+state.settings.priceKwh||31,rated=1.39;
-    if(mode==='変更なし / 現在を維持')return {text:'追加変更なし',level:'最小',note:'現在運転中なら、その運転分の電力は継続してかかります。'};
-    let lo=.16,hi=.44,level='低〜中';
-    if(mode==='冷房'){lo=.25;hi=.82;level='中〜高';}
-    if(mode==='プレミアム冷房'){lo=.22;hi=.72;level='中';}
-    if(mode==='除湿冷房'){lo=.21;hi=.69;level='中';}
-    if(mode==='さらら除湿'){lo=.18;hi=.58;level='低〜中';}
-    if(mode==='節電自動運転'){lo=.14;hi=.48;level='低〜中';}
-    if(temp>=28){lo+=.10;hi+=.15;level='高め';}else if(temp>=26.5){lo+=.04;hi+=.07;}
-    if(rh>=68){lo+=.04;hi+=.07;}if(Number.isFinite(outTemp)&&outTemp>=33){lo+=.07;hi+=.10;}if(goal==='eco'){lo-=.03;hi-=.06;}
-    lo=clamp(lo,.08,.98);hi=clamp(hi,lo+.06,1.12);const a=Math.round(rated*lo*price),b=Math.round(rated*hi*price);
-    return {text:`約${a}〜${b}円`,level,note:'冷房定格消費電力約1.39kWを基準にした負荷レンジの概算です。スマートメーター実測ではありません。'};
+    const price=+state.settings.priceKwh||31,rated=1.39;if(mode==='変更なし / 現在を維持')return {text:'追加変更なし',level:'最小',note:'現在運転中なら、その運転分の電力は継続してかかります。'};let lo=.16,hi=.44,level='低〜中';if(mode==='冷房'){lo=.25;hi=.82;level='中〜高';}if(mode==='プレミアム冷房'){lo=.22;hi=.72;level='中';}if(mode==='除湿冷房'){lo=.21;hi=.69;level='中';}if(mode==='さらら除湿'){lo=.18;hi=.58;level='低〜中';}if(mode==='節電自動運転'){lo=.14;hi=.48;level='低〜中';}if(temp>=28){lo+=.10;hi+=.15;level='高め';}else if(temp>=26.5){lo+=.04;hi+=.07;}if(rh>=68){lo+=.04;hi+=.07;}if(Number.isFinite(outTemp)&&outTemp>=33){lo+=.07;hi+=.10;}if(goal==='eco'){lo-=.03;hi-=.06;}lo=clamp(lo,.08,.98);hi=clamp(hi,lo+.06,1.12);const a=Math.round(rated*lo*price),b=Math.round(rated*hi*price);return {text:`約${a}〜${b}円`,level,note:'冷房定格消費電力約1.39kWを基準にした負荷レンジの概算です。スマートメーター実測ではありません。'};
   }
-
+  function recommendationRunSettings(r){
+    if(!r||!modeCodes[r.mode])return null;let setTemp=null,setRh=null;const tm=String(r.main).match(/(\d+(?:\.\d+)?)℃/),hm=String(r.main).match(/(?:しつど\s*)?(\d+)%/);if(tm)setTemp=+tm[1];if(hm)setRh=+hm[1];const fan=r.fan==='しずか'?'quiet':r.fan==='弱'?'weak':r.fan.includes?.('強')?'strong':'auto';return {mode:modeCodes[r.mode],setTemp,setRh,fan};
+  }
+  function snapshotRunForLog(e){if(!e?.has)return null;return {runId:e.run.id,mode:e.run.mode,setTemp:e.run.setTemp,setRh:e.run.setRh,fan:e.run.fan,startedAt:e.run.startedAt,mins:e.mins,startTemp:e.start.temp,startRh:e.start.rh,startAh:e.start.ah,deltaTemp:+e.dt.toFixed(1),deltaRh:Math.round(e.drh),deltaAh:+e.dah.toFixed(1),rebound:e.rebound,status:e.status};}
   function judge(){
     const temp=num('#temp'),rh=num('#rh');if(temp===null||rh===null||temp<10||temp>40||rh<15||rh>95){toast('室温・湿度を確認して');return;}
-    const outTemp=num('#outTemp'),outRh=num('#outRh'),current=$('#currentMode').value,mins=+$('#minutes').value,target=learnedTargets(),air=airSnapshot(temp,rh);
-    const hot=state.feel==='hot',cold=state.feel==='cold',wet=state.clammy||rh>=Math.max(60,target.rh+5)||air.dp>=17.5,veryWet=rh>=68||air.dp>=20;
-    const warm=temp>=target.temp+1.8||hot,veryWarm=temp>=Math.max(28,target.temp+3.4),cool=temp<=target.temp-1||cold,dry=rh<=44;
-    const stable=Math.abs(temp-target.temp)<=1.2&&rh>=target.rh-5&&rh<=target.rh+5&&!state.clammy&&!hot&&!cold;
+    if(state.activeRun)addRunSample(temp,rh,true);
+    const outTemp=num('#outTemp'),outRh=num('#outRh'),target=learnedTargets(),air=airSnapshot(temp,rh),runEval=analyzeRun(temp,rh),current=state.activeRun?.mode||'off',mins=runEval.has?runEval.mins:0;
+    const hot=state.feel==='hot',cold=state.feel==='cold',wet=state.clammy||rh>=Math.max(60,target.rh+5)||air.dp>=17.5,veryWet=rh>=68||air.dp>=20;const warm=temp>=target.temp+1.8||hot,veryWarm=temp>=Math.max(28,target.temp+3.4),cool=temp<=target.temp-1||cold,dry=rh<=44,stable=Math.abs(temp-target.temp)<=1.2&&rh>=target.rh-5&&rh<=target.rh+5&&!state.clammy&&!hot&&!cold;
     let mode='',main='',fan='自動',extra='なし',badge='',reason=[],bullets=[],first='';
+    if(dry&&!warm){mode='変更なし / 現在を維持';main='除湿しない';fan='—';badge='乾燥回避';reason.push('湿度が低めで、除湿を追加する合理性がありません。');first='除湿は使わず、今の状態を維持。';}
+    else if(state.goal==='coolfast'||(veryWarm&&state.goal!=='humidity')){mode='冷房';main=`${clamp(Math.round((target.temp+1)*2)/2,24,26)}℃`;fan='自動〜強め';badge='温度優先';reason.push('室温負荷が大きいため、まず冷房で熱を落とします。');first=`冷房 ${main}、風量${fan}で開始。`;if(wet)bullets.push('25〜26℃台まで下がったら、湿度を見て除湿側へ再判定。');}
+    else if(state.goal==='humidity'){
+      if(cool){mode='さらら除湿';main='しつど 55%';badge='冷えすぎ回避';reason.push('室温は低めなので、温度より湿度だけを処理します。');}
+      else if(warm&&rh>=60){mode='除湿冷房';main=`${clamp(Math.round((target.temp+1)*2)/2,25,26)}℃ / 55%`;badge='温湿度両立';reason.push('湿度だけでなく室温も高めなので、除湿冷房で両方を処理します。');}
+      else{mode='さらら除湿';main=veryWet?'しつど 50%':'しつど 55%';badge='湿度優先';reason.push('暑さより湿気が主問題なので、さらら除湿を優先します。');}first=`${mode}にして、${main}を目安に。`;
+    }else if(state.goal==='eco'){if(stable){mode='変更なし / 現在を維持';main='変更なし';fan='—';badge='最小消費';reason.push('快適域にいるため、設定変更による余計な負荷を避けます。');first='今は触らず、そのまま維持。';}else{mode='節電自動運転';main='標準';badge='節電優先';reason.push('温度・しつどを見ながら制御する節電自動運転を優先します。');first='節電自動運転に任せて、30分後に再確認。';}}
+    else if(state.goal==='sleep'){if(veryWet&&temp>=23.5){mode='さらら除湿';main=cool?'しつど 55%':'しつど 55%';badge='睡眠安定';extra='新・おやすみ';reason.push('寝入りの湿気を減らしつつ、冷えすぎを避けます。');}else if(warm){mode='プレミアム冷房';main=`${clamp(Math.round((target.temp+.8)*2)/2,24.5,26)}℃`;badge='睡眠安定';extra='新・おやすみ';reason.push('強い冷却より、設定到達後の温湿度安定を優先します。');}else{mode='変更なし / 現在を維持';main='変更なし';fan='—';badge='睡眠安定';extra='必要なら新・おやすみ';reason.push('すでに寝やすい範囲に近く、大きく動かさない方が安定します。');}first=mode.startsWith('変更なし')?'今の状態を維持。必要ならおやすみ運転だけ追加。':`${mode} + ${extra}を目安に。`;}
+    else if(state.goal==='reset'){if(veryWet&&temp<26){mode='さらら除湿';main='しつど 50%';badge='短時間改善';reason.push('高湿度が主因なので、短時間だけ除湿を強めます。');first='さらら除湿50%で20〜30分後に再判定。';bullets.push('55〜60%まで戻ったら設定を緩める。');}else{mode='冷房';main=`${clamp(Math.round(target.temp*2)/2,24,25)}℃`;fan='強め→自動';badge='短時間改善';reason.push('短時間で体感を変えるには、まず冷房能力を使う方が確実です。');first=`冷房 ${main}、最初だけ風量強め。`;}}
+    else{if(veryWarm){mode='冷房';main=`${clamp(Math.round((target.temp+1)*2)/2,24.5,26)}℃`;badge='温度優先';reason.push('室温が高いため、湿度より先に熱を落とします。');}else if(warm&&wet){mode='除湿冷房';main=`${clamp(Math.round((target.temp+1)*2)/2,24.5,26)}℃ / 55%`;badge='温湿度両立';reason.push('少し暑く、湿気もあるため、温度と湿度を同時に処理します。');}else if(wet&&temp<=target.temp+1.3){mode='さらら除湿';main=veryWet?'しつど 50%':'しつど 55%';badge='湿度優先';reason.push(cool?'室温が低めなので、追加冷却を抑えながら湿度を処理します。':'室温を大きく下げる必要がなく、湿度処理を優先します。');}else if(temp>=target.temp+1&&rh>=target.rh){mode='プレミアム冷房';main=`${clamp(Math.round(target.temp*2)/2,24,25.5)}℃`;badge='安定運転';reason.push('極端な高温多湿ではないため、設定到達後も蒸し暑さが戻りにくい冷房を候補にします。');}else{mode='変更なし / 現在を維持';main='変更なし';fan='—';badge='快適域';reason.push('現在値は快適ゾーンに近く、変更の必要性が低いです。');}first=mode.startsWith('変更なし')?'今は触らず、そのまま維持。':`${mode}にして、${main}を目安に。`;}
 
-    if(dry&&!warm){
-      mode='変更なし / 現在を維持';main='除湿しない';fan='—';badge='乾燥回避';reason.push('湿度が低めで、除湿を追加する合理性がありません。');first='除湿は使わず、今の状態を維持。';
-    }else if(state.goal==='coolfast'||(veryWarm&&state.goal!=='humidity')){
-      mode='冷房';main=`${clamp(Math.round((target.temp+1)*2)/2,24,26)}℃`;fan='自動〜強め';badge='温度優先';reason.push('室温負荷が大きいため、まず冷房で熱を落とす方が効率的です。');first=`冷房 ${main}、風量${fan}で開始。`;if(wet)bullets.push('25〜26℃台まで下がったら、湿度を見て除湿側へ再判定。');
-    }else if(state.goal==='humidity'){
-      if(cool){mode='さらら除湿';main='しつど 60%';badge='冷えすぎ回避';reason.push('室温は低めなので、温度より湿度だけを処理します。');}
-      else if(warm&&rh>=60){mode='除湿冷房';main=`${clamp(Math.round((target.temp+1)*2)/2,25,26)}℃ / 55〜60%`;badge='温湿度両立';reason.push('湿度だけでなく室温も高めなので、除湿冷房で両方を処理します。');}
-      else{mode='さらら除湿';main=veryWet?'しつど 50〜55%':'しつど 55%';badge='湿度優先';reason.push('暑さより湿気が主問題なので、さらら除湿を優先します。');}
-      first=`${mode}にして、${main}を目安に。`;
-    }else if(state.goal==='eco'){
-      if(stable){mode='変更なし / 現在を維持';main='変更なし';fan='—';badge='最小消費';reason.push('快適域にいるため、設定変更による余計な負荷を避けます。');first='今は触らず、そのまま維持。';}
-      else{mode='節電自動運転';main='標準';badge='節電優先';reason.push('温度・しつどを見ながら制御する節電自動運転を優先します。');first='節電自動運転に任せて、30分後に再確認。';}
-    }else if(state.goal==='sleep'){
-      if(veryWet&&temp>=23.5){mode='さらら除湿';main=cool?'しつど 60%':'しつど 55〜60%';badge='睡眠安定';extra='新・おやすみ';reason.push('寝入りの湿気を減らしつつ、冷えすぎを避ける判断です。');}
-      else if(warm){mode='プレミアム冷房';main=`${clamp(Math.round((target.temp+.8)*2)/2,24.5,26)}℃`;badge='睡眠安定';extra='新・おやすみ';reason.push('強い冷却より、設定到達後の温湿度安定を優先します。');}
-      else{mode='変更なし / 現在を維持';main='変更なし';fan='—';badge='睡眠安定';extra='必要なら新・おやすみ';reason.push('すでに寝やすい範囲に近く、大きく動かさない方が安定します。');}
-      first=mode.startsWith('変更なし')?'今の状態を維持。必要ならおやすみ運転だけ追加。':`${mode} + ${extra}を目安に。`;
-    }else if(state.goal==='reset'){
-      if(veryWet&&temp<26){mode='さらら除湿';main='しつど 50〜55%';badge='短時間改善';reason.push('高湿度が主因なので、短時間だけ除湿を強めます。');first='さらら除湿を強めにして、20〜30分で再判定。';bullets.push('55〜60%まで戻ったら設定を緩めるか通常運転へ。');}
-      else{mode='冷房';main=`${clamp(Math.round(target.temp*2)/2,24,25)}℃`;fan='強め→自動';badge='短時間改善';reason.push('短時間で体感を変えるには、まず冷房能力を使う方が確実です。');first=`冷房 ${main}、最初だけ風量強め。`;}
-    }else{
-      if(veryWarm){mode='冷房';main=`${clamp(Math.round((target.temp+1)*2)/2,24.5,26)}℃`;badge='温度優先';reason.push('室温が高いため、湿度より先に熱を落とします。');}
-      else if(warm&&wet){mode='除湿冷房';main=`${clamp(Math.round((target.temp+1)*2)/2,24.5,26)}℃ / 55〜60%`;badge='温湿度両立';reason.push('少し暑く、湿気もあるため、温度と湿度を同時に処理します。');}
-      else if(wet&&temp<=target.temp+1.3){mode='さらら除湿';main=cool?'しつど 60%':(veryWet?'しつど 50〜55%':'しつど 55%');badge='湿度優先';reason.push(cool?'室温が低めなので、追加冷却を抑えながら湿度を処理します。':'室温を大きく下げる必要がなく、湿度処理を優先します。');}
-      else if(temp>=target.temp+1&&rh>=target.rh){mode='プレミアム冷房';main=`${clamp(Math.round(target.temp*2)/2,24,25.5)}℃`;badge='安定運転';reason.push('極端な高温多湿ではないため、設定到達後も蒸し暑さが戻りにくい冷房を候補にします。');}
-      else{mode='変更なし / 現在を維持';main='変更なし';fan='—';badge='快適域';reason.push('現在値はあなたの快適ゾーンに近く、変更の必要性が低いです。');}
-      first=mode.startsWith('変更なし')?'今は触らず、そのまま維持。':`${mode}にして、${main}を目安に。`;
+    if(cold&&!veryWarm&&['冷房','プレミアム冷房'].includes(mode)){mode=wet?'さらら除湿':'変更なし / 現在を維持';main=wet?'しつど 55%':'変更なし';fan=mode.startsWith('変更なし')?'—':'自動';badge='冷えすぎ回避';reason=['寒さを感じているため、冷房による追加冷却を避けます。'];first=wet?'さらら除湿で湿度だけを処理。':'今は運転を強めず維持。';}
+
+    // v4: active-run history can override a generic recommendation.
+    if(runEval.has&&runEval.early&&!veryWarm&&!veryWet&&!['coolfast','reset'].includes(state.goal)&&current!=='off'&&!runEval.rebound){mode='変更なし / 現在を維持';main=runSettingText(runEval.run);fan='—';badge='評価待ち';reason=[`現在の${modeNames[current]}を始めて${formatDuration(mins)}。まだ設定の効き目を判断するには早いため、急な再変更を避けます。`];first='今の設定を20〜30分まで継続して再確認。';}
+    if(runEval.has&&['dry','drycool'].includes(runEval.run.mode)&&rh>=60&&(runEval.rebound||runEval.notMaintaining)){
+      const setRh=Number.isFinite(runEval.run.setRh)?runEval.run.setRh:55;
+      if(runEval.run.mode==='dry'&&setRh>50&&temp<=target.temp+1.2&&!hot){mode='さらら除湿';main='しつど 50%';fan='自動';badge='再上昇対応';reason=[`同じさらら除湿で一度${runEval.minRh.rh}%まで下がった後、現在${rh}%まで再上昇しています。55%設定の継続では維持できていないため、一段強めます。`];first='さらら除湿を50%へ。30分後に再確認。';}
+      else if(temp>=target.temp+.5||hot){mode='除湿冷房';main=`${clamp(Math.round((target.temp+.8)*2)/2,24.5,25.5)}℃ / 50%`;fan='自動';badge='再上昇対応';reason=[`湿度が再上昇し、室温も目標より高めです。同じ除湿設定を続けず、温度と湿度の両方を処理します。`];first=`除湿冷房 ${main}へ切り替えて再確認。`;}
+      else if(setRh<=50){mode='変更なし / 現在を維持';main=runSettingText(runEval.run);fan='—';badge='原因切り分け';reason=[`すでに除湿50%で運転中なのに湿度が再上昇しています。さらに設定を下げる余地が小さいため、外気流入・室内発湿・湿度戻りなどを切り分けます。`];first='今の設定のまま換気・料理・食洗機などの発湿要因を確認し、20〜30分で再判定。';}
     }
 
-    if(cold&&!veryWarm&&['冷房','プレミアム冷房'].includes(mode)){
-      mode=wet?'さらら除湿':'変更なし / 現在を維持';main=wet?'しつど 60%':'変更なし';fan=mode.startsWith('変更なし')?'—':'自動';badge='冷えすぎ回避';reason=['寒さを感じているため、冷房による追加冷却を避けます。'];first=wet?'さらら除湿で湿度だけを処理。':'今は運転を強めず維持。';
-    }
+    if(runEval.has){bullets.unshift(`現在の実運転：${modeNames[runEval.run.mode]} ${runSettingText(runEval.run)} · ${formatDuration(runEval.mins)}。`);if(runEval.rebound)bullets.push('相対湿度だけでなく絶対湿度も増えているため、単なる温度変化による見かけの上昇ではありません。');}
+    else bullets.unshift('現在の実運転が未記録です。設定変更時刻を記録すると判定精度が上がります。');
+    if(state.ventOpen&&rh>=60)bullets.push('窓・換気扇から湿った外気が入ると、除湿効果が弱まりやすいです。');if(Number.isFinite(outRh)&&outRh>=75&&['さらら除湿','除湿冷房'].includes(mode))bullets.push('外気湿度が高い場合、強い換気は除湿と競合する可能性があります。');if(Number.isFinite(outRh)&&state.goal==='humidity'&&outRh<rh-12)bullets.push('外気の方がかなり乾いているため、短時間換気が有利な場合があります。');if(['冷房','プレミアム冷房','除湿冷房'].includes(mode)&&temp>=27&&!cold)extra='サーキュレーション';if(mode==='変更なし / 現在を維持')bullets.push(`現在の目標ゾーンは約${(target.temp-1).toFixed(1)}〜${(target.temp+1).toFixed(1)}℃ / ${target.rh-5}〜${target.rh+5}%。`);else bullets.push(`${state.settings.recheckMinutes}分後に再入力し、同じ設定での推移を比較。`);
 
-    const currentLabel=modeNames[current]||'不明';
-    if(mins>0&&mins<20&&current!=='off'&&!veryWarm&&!veryWet){bullets.push(`現在の${currentLabel}に変えてから${mins}分。急いで再変更せず、20〜30分は反応を見る方が判断しやすいです。`);}
-    if(state.ventOpen&&rh>=60)bullets.push('窓・換気扇から湿った外気が入ると、除湿効果が弱まりやすいです。');
-    if(Number.isFinite(outRh)&&outRh>=75&&['さらら除湿','除湿冷房'].includes(mode))bullets.push('外気湿度が高いため、除湿中の強い換気は湿度戻りの原因になり得ます。');
-    if(Number.isFinite(outRh)&&state.goal==='humidity'&&outRh<rh-12)bullets.push('外気の方がかなり乾いているため、短時間換気が有利な場合があります。');
-    if(['冷房','プレミアム冷房','除湿冷房'].includes(mode)&&temp>=27&&!cold)extra='サーキュレーション';
-    if(mode==='変更なし / 現在を維持')bullets.push(`現在の目標ゾーンは約${(target.temp-1).toFixed(1)}〜${(target.temp+1).toFixed(1)}℃ / ${target.rh-5}〜${target.rh+5}%。`);
-    else bullets.push(`${state.settings.recheckMinutes}分後に室温・湿度を再入力し、狙った方向へ動いているか確認。`);
-
-    const energy=energyEstimate(mode,temp,rh,outTemp,state.goal),advancedCount=[outTemp,outRh].filter(Number.isFinite).length+(current!=='off'?1:0)+(mins>0?1:0)+(state.ventOpen?1:0);
-    state.lastResult={id:Date.now(),at:new Date().toISOString(),temp,rh,dewPoint:+air.dp.toFixed(1),absHumidity:+air.ah.toFixed(1),outTemp,outRh,feel:state.feel,goal:state.goal,clammy:state.clammy,ventOpen:state.ventOpen,current,mins,mode,main,fan,extra,badge,reason:reason.join(' '),bullets,first,target,energy:energy.text,energyLevel:energy.level};
-    $('#resultMode').textContent=mode;$('#resultBadge').textContent=badge;$('#setMain').textContent=main;$('#setFan').textContent=fan;$('#setExtra').textContent=extra;$('#firstAction').textContent=first;$('#resultReason').textContent=reason.join(' ');$('#resultBullets').innerHTML=bullets.map(x=>`<li>${escapeHtml(x)}</li>`).join('');$('#energyCost').textContent=energy.text;$('#target').textContent=`${(target.temp-1).toFixed(1)}–${(target.temp+1).toFixed(1)}℃ / ${target.rh-5}–${target.rh+5}%`;$('#energyNote').textContent=`負荷感：${energy.level}。${energy.note}`;$('#resultMeta').textContent=`基本4項目 + 詳細${advancedCount}項目 · メーカー仕様ベース · API不使用`;
-    $('#resultCard').classList.add('show');$('#feedback').classList.remove('show');state.lastSavedId=null;setTimeout(()=>$('#resultCard').scrollIntoView({behavior:'smooth',block:'start'}),70);
+    const energy=energyEstimate(mode,temp,rh,outTemp,state.goal),runSnapshot=snapshotRunForLog(runEval);state.lastResult={id:Date.now(),at:new Date().toISOString(),temp,rh,dewPoint:+air.dp.toFixed(1),absHumidity:+air.ah.toFixed(1),outTemp,outRh,feel:state.feel,goal:state.goal,clammy:state.clammy,ventOpen:state.ventOpen,current,mins,mode,main,fan,extra,badge,reason:reason.join(' '),bullets,first,target,energy:energy.text,energyLevel:energy.level,runSnapshot,feedback:null};
+    state.logs.unshift({...state.lastResult});state.logs=state.logs.slice(0,200);state.lastSavedId=state.lastResult.id;store.set('aj_logs',state.logs);
+    $('#resultMode').textContent=mode;$('#resultBadge').textContent=badge;$('#setMain').textContent=main;$('#setFan').textContent=fan;$('#setExtra').textContent=extra;$('#firstAction').textContent=first;$('#resultReason').textContent=reason.join(' ');$('#resultBullets').innerHTML=bullets.map(x=>`<li>${escapeHtml(x)}</li>`).join('');$('#energyCost').textContent=energy.text;$('#target').textContent=`${(target.temp-1).toFixed(1)}–${(target.temp+1).toFixed(1)}℃ / ${target.rh-5}–${target.rh+5}%`;$('#energyNote').textContent=`負荷感：${energy.level}。${energy.note}`;$('#resultMeta').textContent=`実運転${runEval.has?'追跡中':'未記録'} · 履歴自動保存 · メーカー仕様ベース`;
+    $('#resultCard').classList.add('show');$('#feedback').classList.add('show');renderLogs();renderRunInsight();setTimeout(()=>$('#resultCard').scrollIntoView({behavior:'smooth',block:'start'}),70);toast('判定を履歴に自動保存した');
   }
+  function applyRecommendedRun(){if(!state.lastResult){toast('先に判定して');return;}const x=recommendationRunSettings(state.lastResult);if(!x){toast('変更する設定はありません');return;}startRun(x.mode,x.setTemp,x.setRh,x.fan,'recommendation');}
+  function setFeedback(f){if(!state.lastSavedId){toast('先に判定して');return;}const i=state.logs.findIndex(x=>x.id===state.lastSavedId);if(i>=0){state.logs[i].feedback=f;store.set('aj_logs',state.logs);renderLogs();toast('次の判定に反映する');}}
+  function deleteLog(id){state.logs=state.logs.filter(x=>x.id!==id);store.set('aj_logs',state.logs);renderLogs();toast('判定履歴を削除した');}
+  function deleteRun(id){state.runHistory=state.runHistory.filter(x=>x.id!==id);persistRuns();renderLogs();toast('運転履歴を削除した');}
 
-  function escapeHtml(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
-  function saveResult(){if(!state.lastResult){toast('先に判定して');return;}if(state.lastSavedId===state.lastResult.id){toast('保存済み');return;}state.logs.unshift({...state.lastResult,feedback:null});state.logs=state.logs.slice(0,200);state.lastSavedId=state.lastResult.id;store.set('aj_logs',state.logs);$('#feedback').classList.add('show');renderLogs();renderDelta();toast('ログに保存した');}
-  function setFeedback(f){if(!state.lastSavedId){toast('先にログへ保存して');return;}const i=state.logs.findIndex(x=>x.id===state.lastSavedId);if(i>=0){state.logs[i].feedback=f;store.set('aj_logs',state.logs);renderLogs();toast('次の判定に反映する');}}
-  function deleteLog(id){state.logs=state.logs.filter(x=>x.id!==id);store.set('aj_logs',state.logs);renderLogs();renderDelta();toast('ログを削除した');}
-
-  function renderDelta(){
-    const card=$('#deltaCard'),last=state.logs[0],t=num('#temp'),rh=num('#rh');if(!last||t===null||rh===null){card.classList.remove('show');return;}
-    const ms=Date.now()-new Date(last.at).getTime();if(ms<0||ms>6*60*60*1000){card.classList.remove('show');return;}
-    const dt=t-last.temp,dh=rh-last.rh,mins=Math.max(1,Math.round(ms/60000));$('#deltaTemp').textContent=signed(dt,1,'℃');$('#deltaRh').textContent=signed(dh,0,'%');$('#deltaMode').textContent=last.mode;$('#deltaTime').textContent=`約${mins}分前と比較`;$('#deltaTemp').className=dt<0?'down':dt>0?'up':'';$('#deltaRh').className=dh<0?'down':dh>0?'up':'';card.classList.add('show');
-  }
-
-  function sparklineSvg(logs){
-    const data=[...logs].slice(0,12).reverse();if(data.length<2)return '<div class="chart-empty">2件以上で推移を表示します</div>';
-    const w=500,h=66,p=5,temps=data.map(x=>x.temp),rhs=data.map(x=>x.rh),tMin=Math.min(...temps)-.6,tMax=Math.max(...temps)+.6,hMin=Math.min(...rhs)-3,hMax=Math.max(...rhs)+3;
-    const points=(arr,min,max)=>arr.map((v,i)=>`${p+i*(w-2*p)/(arr.length-1)},${h-p-(v-min)/(max-min||1)*(h-2*p)}`).join(' ');
-    return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-label="温湿度推移"><polyline points="${points(temps,tMin,tMax)}" fill="none" stroke="#425e68" stroke-width="2.4" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"/><polyline points="${points(rhs,hMin,hMax)}" fill="none" stroke="#087987" stroke-width="2.4" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-  }
+  function sparklineSvg(logs){const data=[...logs].slice(0,12).reverse();if(data.length<2)return '<div class="chart-empty">2件以上で推移を表示します</div>';const w=500,h=66,p=5,temps=data.map(x=>x.temp),rhs=data.map(x=>x.rh),tMin=Math.min(...temps)-.6,tMax=Math.max(...temps)+.6,hMin=Math.min(...rhs)-3,hMax=Math.max(...rhs)+3;const points=(arr,min,max)=>arr.map((v,i)=>`${p+i*(w-2*p)/(arr.length-1)},${h-p-(v-min)/(max-min||1)*(h-2*p)}`).join(' ');return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-label="温湿度推移"><polyline points="${points(temps,tMin,tMax)}" fill="none" stroke="#425e68" stroke-width="2.4" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"/><polyline points="${points(rhs,hMin,hMax)}" fill="none" stroke="#087987" stroke-width="2.4" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"/></svg>`;}
+  function runHistoryCard(r,active=false){const samples=r.samples||[],first=samples[0],last=samples[samples.length-1],end=r.endedAt?new Date(r.endedAt).getTime():Date.now(),mins=elapsedMinutes(r.startedAt,end),delta=first&&last?`室温 ${signed(last.temp-first.temp,1,'℃')} · 湿度 ${signed(last.rh-first.rh,0,'%')} · 絶対湿度 ${signed(last.ah-first.ah,1,'g/m³')}`:'測定データなし';return `<div class="run-card ${active?'active':''}"><div class="run-card-top"><div><div class="run-card-title">${escapeHtml(modeNames[r.mode]||'運転')} · ${escapeHtml(runSettingText(r))}</div><div class="run-card-time">${new Date(r.startedAt).toLocaleString('ja-JP',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})} · ${formatDuration(mins)}${active?' · 運転中':''}</div></div>${active?'<span class="saved-label">NOW</span>':`<button class="log-delete" data-run-delete="${r.id}">削除</button>`}</div><div class="run-card-summary">${escapeHtml(delta)} · 記録${samples.length}点</div></div>`;}
   function renderLogs(){
-    $('#logCount').textContent=state.logs.length;const comfy=state.logs.filter(x=>x.feedback==='comfortable'),fb=state.logs.filter(x=>x.feedback);const mh=median(comfy.map(x=>x.rh));$('#comfortZone').textContent=mh===null?'—':`${Math.round(mh)}%`;$('#comfortRate').textContent=fb.length?`${Math.round(comfy.length/fb.length*100)}%`:'—';$('#chartWrap').innerHTML=sparklineSvg(state.logs);
-    const list=$('#logsList');if(!state.logs.length){list.innerHTML='<div class="empty">まだログがありません。<br>判定後に「ログに保存」を押すと、ここに蓄積されます。</div>';return;}
-    list.innerHTML=state.logs.map(x=>`<div class="log-card"><div class="log-top"><div><strong>${escapeHtml(x.mode)}</strong><div class="log-time">${new Date(x.at).toLocaleString('ja-JP',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}</div></div><button class="log-delete" data-delete="${x.id}">削除</button></div><div class="log-metrics"><span class="mini">${x.temp}℃</span><span class="mini">${x.rh}%</span><span class="mini">${escapeHtml(x.main)}</span>${x.dewPoint?`<span class="mini">露点 ${x.dewPoint}℃</span>`:''}</div><div style="font-size:10px;color:var(--muted);line-height:1.55">${escapeHtml(x.reason)}</div>${x.feedback?`<div class="feedback-tag" style="margin-top:8px">結果：${feedbackNames[x.feedback]}</div>`:''}</div>`).join('');
-    $$('[data-delete]').forEach(b=>b.onclick=()=>{if(confirm('このログを削除しますか？'))deleteLog(+b.dataset.delete);});
+    $('#logCount').textContent=state.logs.length;const comfy=state.logs.filter(x=>x.feedback==='comfortable'),fb=state.logs.filter(x=>x.feedback),mh=median(comfy.map(x=>x.rh));$('#comfortZone').textContent=mh===null?'—':`${Math.round(mh)}%`;$('#comfortRate').textContent=fb.length?`${Math.round(comfy.length/fb.length*100)}%`:'—';$('#chartWrap').innerHTML=sparklineSvg(state.logs);
+    const ha=$('#historyActiveRun');if(ha)ha.innerHTML=state.activeRun?runHistoryCard(state.activeRun,true):'<div class="empty" style="padding:18px">現在の運転は未記録です。</div>';
+    const rh=$('#runHistoryList');if(rh)rh.innerHTML=state.runHistory.length?state.runHistory.slice(0,20).map(r=>runHistoryCard(r)).join(''):'<div class="empty" style="padding:18px">設定を変更すると、前の運転がここへ残ります。</div>';
+    const list=$('#logsList');if(!state.logs.length){list.innerHTML='<div class="empty">まだ判定履歴がありません。<br>「最適運転を判定」を押すと自動保存されます。</div>';return;}
+    list.innerHTML=state.logs.map(x=>{const rs=x.runSnapshot,currentText=rs?`${modeNames[rs.mode]||'運転'} · ${Number.isFinite(rs.setTemp)?rs.setTemp+'℃ ':''}${Number.isFinite(rs.setRh)?'湿度'+rs.setRh+'%':''} · ${formatDuration(rs.mins)}`:'実運転 未記録';return `<div class="log-card"><div class="log-top"><div><strong>${x.temp}℃ / ${x.rh}%</strong><div class="log-time">${new Date(x.at).toLocaleString('ja-JP',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})} · 絶対湿度 ${x.absHumidity??'—'}g/m³</div></div><button class="log-delete" data-delete="${x.id}">削除</button></div><div class="log-route"><div class="route-box"><small>その時の実運転</small><b>${escapeHtml(currentText)}</b></div><div class="route-arrow">→</div><div class="route-box"><small>AIR JUDGEの判定</small><b>${escapeHtml(x.mode)} · ${escapeHtml(x.main)}</b></div></div>${rs?`<div class="log-metrics"><span class="mini">開始から ${signed(rs.deltaTemp,1,'℃')}</span><span class="mini">湿度 ${signed(rs.deltaRh,0,'%')}</span><span class="mini">絶対湿度 ${signed(rs.deltaAh,1,'g/m³')}</span>${rs.rebound?'<span class="mini">再上昇検知</span>':''}</div>`:''}<div class="log-reason">${escapeHtml(x.reason)}</div>${x.feedback?`<div class="feedback-tag" style="margin-top:8px">結果：${feedbackNames[x.feedback]}</div>`:''}</div>`;}).join('');
+    $$('[data-delete]').forEach(b=>b.onclick=()=>{if(confirm('この判定履歴を削除しますか？'))deleteLog(+b.dataset.delete);});$$('[data-run-delete]').forEach(b=>b.onclick=()=>{if(confirm('この運転履歴を削除しますか？'))deleteRun(+b.dataset.runDelete);});
   }
-
   function reminderCheck(){const b=$('#dueBanner');if(!state.reminder){b.classList.remove('show');return;}const due=new Date(state.reminder.due).getTime();if(Date.now()>=due){b.textContent=`再確認の時間です。前回 ${state.reminder.temp}℃ / ${state.reminder.rh}% → いまの数値を入力して判定してください。`;b.classList.add('show');}else{const m=Math.ceil((due-Date.now())/60000);b.textContent=`再確認まで約${m}分 · 前回 ${state.reminder.temp}℃ / ${state.reminder.rh}%`;b.classList.add('show');}}
   function setReminder(){if(!state.lastResult){toast('先に判定して');return;}const m=+state.settings.recheckMinutes||30;state.reminder={due:new Date(Date.now()+m*60000).toISOString(),temp:state.lastResult.temp,rh:state.lastResult.rh};store.set('aj_reminder',state.reminder);reminderCheck();toast(`${m}分後の再確認をセット`);}
   async function shareResult(){if(!state.lastResult){toast('先に判定して');return;}const r=state.lastResult,text=`AIR JUDGE\n${r.temp}℃ / ${r.rh}% → ${r.mode}\n設定: ${r.main}\n${r.first}\nAN566ARP-W専用・API不使用`;try{if(navigator.share)await navigator.share({title:'AIR JUDGE',text});else{await navigator.clipboard.writeText(text);toast('結果をコピーした');}}catch(e){if(e?.name!=='AbortError')toast('共有できなかった');}}
-
   function downloadBlob(name,type,text){const blob=new Blob([text],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
-  function exportJson(){downloadBlob(`air-judge-backup-${new Date().toISOString().slice(0,10)}.json`,'application/json',JSON.stringify({version:2,model:'AN566ARP-W',settings:state.settings,logs:state.logs},null,2));toast('JSONを書き出した');}
+  function exportJson(){downloadBlob(`air-judge-backup-${new Date().toISOString().slice(0,10)}.json`,'application/json',JSON.stringify({version:4,model:'AN566ARP-W',settings:state.settings,logs:state.logs,activeRun:state.activeRun,runHistory:state.runHistory,theme:state.theme},null,2));toast('JSONを書き出した');}
   function csvEscape(v){const s=String(v??'');return /[",\n]/.test(s)?`"${s.replace(/"/g,'""')}"`:s;}
-  function exportCsv(){const rows=[['日時','室温','湿度','露点','目的','体感','推奨モード','設定','風量','追加','結果'],...state.logs.map(x=>[x.at,x.temp,x.rh,x.dewPoint??'',x.goal,x.feel,x.mode,x.main,x.fan,x.extra,x.feedback?feedbackNames[x.feedback]:''])];downloadBlob(`air-judge-log-${new Date().toISOString().slice(0,10)}.csv`,'text/csv;charset=utf-8','\ufeff'+rows.map(r=>r.map(csvEscape).join(',')).join('\n'));toast('CSVを書き出した');}
-  async function importJson(file){try{const data=JSON.parse(await file.text());if(!Array.isArray(data.logs))throw new Error('bad');if(!confirm(`${data.logs.length}件のログを読み込みます。現在のログと置き換えますか？`))return;state.logs=data.logs.slice(0,200);state.settings={...defaults,...(data.settings||{})};store.set('aj_logs',state.logs);store.set('aj_settings',state.settings);$('#priceKwh').value=state.settings.priceKwh;$('#targetTempSetting').value=state.settings.targetTemp;$('#targetRhSetting').value=state.settings.targetRh;$('#recheckMinutes').value=state.settings.recheckMinutes;renderLogs();renderDelta();toast('バックアップを読み込んだ');}catch{toast('JSONを読み込めなかった');}}
+  function exportCsv(){const rows=[['日時','室温','湿度','絶対湿度','実運転','稼働分','推奨モード','設定','結果'],...state.logs.map(x=>[x.at,x.temp,x.rh,x.absHumidity??'',x.runSnapshot?modeNames[x.runSnapshot.mode]:'',x.runSnapshot?.mins??'',x.mode,x.main,x.feedback?feedbackNames[x.feedback]:''])];downloadBlob(`air-judge-log-${new Date().toISOString().slice(0,10)}.csv`,'text/csv;charset=utf-8','\ufeff'+rows.map(r=>r.map(csvEscape).join(',')).join('\n'));toast('CSVを書き出した');}
+  async function importJson(file){try{const data=JSON.parse(await file.text());if(!Array.isArray(data.logs))throw new Error('bad');if(!confirm(`${data.logs.length}件の判定履歴を読み込みます。現在データと置き換えますか？`))return;state.logs=data.logs.slice(0,200);state.settings={...defaults,...(data.settings||{})};state.activeRun=data.activeRun||null;state.runHistory=Array.isArray(data.runHistory)?data.runHistory.slice(0,60):[];store.set('aj_logs',state.logs);store.set('aj_settings',state.settings);persistRuns();$('#priceKwh').value=state.settings.priceKwh;$('#targetTempSetting').value=state.settings.targetTemp;$('#targetRhSetting').value=state.settings.targetRh;$('#recheckMinutes').value=state.settings.recheckMinutes;syncRunForm();renderActiveRun();renderRunInsight();renderLogs();toast('バックアップを読み込んだ');}catch{toast('JSONを読み込めなかった');}}
   function persistSettings(){state.settings={priceKwh:+$('#priceKwh').value||31,targetTemp:clamp(+$('#targetTempSetting').value||24,23,26),targetRh:clamp(+$('#targetRhSetting').value||55,45,65),recheckMinutes:+$('#recheckMinutes').value||30};store.set('aj_settings',state.settings);toast('設定を保存した');}
 
-  $$('.stepper button').forEach(b=>b.onclick=()=>{const id='#'+b.dataset.step,d=+b.dataset.delta,v=num(id,0)+d;$(id).value=id==='#temp'?v.toFixed(1):Math.round(v);refreshAirReadout();});
-  ['temp','rh'].forEach(id=>$('#'+id).addEventListener('input',refreshAirReadout));
+  $$('.stepper button').forEach(b=>b.onclick=()=>{const id='#'+b.dataset.step,d=+b.dataset.delta,v=num(id,0)+d;$(id).value=id==='#temp'?v.toFixed(1):Math.round(v);refreshAirReadout();});['temp','rh'].forEach(id=>$('#'+id).addEventListener('input',refreshAirReadout));
   $$('[data-group]').forEach(group=>group.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;group.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');state[group.dataset.group]=b.dataset.value;}));
-  $('#clammy').onclick=()=>{state.clammy=!state.clammy;$('#clammy').classList.toggle('on',state.clammy)};$('#ventOpen').onclick=()=>{state.ventOpen=!state.ventOpen;$('#ventOpen').classList.toggle('on',state.ventOpen)};
-  $('#advancedBtn').onclick=()=>{const o=$('#advanced').classList.toggle('open');$('#advancedBtn').textContent=o?'− 詳細条件を閉じる':'＋ 詳細条件を入れる';};
-  $('#judgeBtn').onclick=judge;$('#saveBtn').onclick=saveResult;$('#recheckBtn').onclick=setReminder;$('#shareBtn').onclick=shareResult;$$('[data-feedback]').forEach(b=>b.onclick=()=>setFeedback(b.dataset.feedback));
+  $('#clammy').onclick=()=>{state.clammy=!state.clammy;$('#clammy').classList.toggle('on',state.clammy)};$('#ventOpen').onclick=()=>{state.ventOpen=!state.ventOpen;$('#ventOpen').classList.toggle('on',state.ventOpen)};$('#advancedBtn').onclick=()=>{const o=$('#advanced').classList.toggle('open');$('#advancedBtn').textContent=o?'− 外気・換気条件を閉じる':'＋ 外気・換気条件を入れる';};
+  $('#startCurrentRunBtn').onclick=startManualRun;$('#stopCurrentRunBtn').onclick=()=>{if(confirm('現在の運転を終了として記録しますか？'))finishActiveRun('運転終了');};$('#quickRecordBtn').onclick=quickRecord;$('#judgeBtn').onclick=judge;$('#applyResultBtn').onclick=applyRecommendedRun;$('#recheckBtn').onclick=setReminder;$('#shareBtn').onclick=shareResult;$$('[data-feedback]').forEach(b=>b.onclick=()=>setFeedback(b.dataset.feedback));
   $$('.navbtn').forEach(b=>b.onclick=()=>{$$('.navbtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');$$('.page').forEach(x=>x.classList.remove('active'));$('#page-'+b.dataset.page).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});if(b.dataset.page==='logs')renderLogs();});
-  ['priceKwh','targetTempSetting','targetRhSetting','recheckMinutes'].forEach(id=>$('#'+id).addEventListener('change',persistSettings));
-  $('#themeQuick').onclick=()=>applyTheme(resolvedTheme()==='dark'?'light':'dark');$$('[data-theme-choice]').forEach(b=>b.onclick=()=>applyTheme(b.dataset.themeChoice));themeMedia.addEventListener?.('change',()=>{if(state.theme==='system')applyTheme('system',false);});
+  ['priceKwh','targetTempSetting','targetRhSetting','recheckMinutes'].forEach(id=>$('#'+id).addEventListener('change',persistSettings));$('#themeQuick').onclick=()=>applyTheme(resolvedTheme()==='dark'?'light':'dark');$$('[data-theme-choice]').forEach(b=>b.onclick=()=>applyTheme(b.dataset.themeChoice));themeMedia.addEventListener?.('change',()=>{if(state.theme==='system')applyTheme('system',false);});
   $('#installHelpBtn').onclick=()=>$('#installGuide').classList.toggle('show');$('#exportJsonBtn').onclick=exportJson;$('#exportCsvBtn').onclick=exportCsv;$('#importFile').onchange=e=>{if(e.target.files?.[0])importJson(e.target.files[0]);e.target.value='';};
-  $('#resetBtn').onclick=()=>{if(confirm('ログ・学習・再確認データをすべて削除しますか？')){state.logs=[];state.reminder=null;state.lastSavedId=null;localStorage.removeItem('aj_logs');localStorage.removeItem('aj_reminder');renderLogs();renderDelta();reminderCheck();toast('削除した');}};
-  window.addEventListener('online',()=>$('#offlineStatus').textContent='LOCAL · ¥0');window.addEventListener('offline',()=>$('#offlineStatus').textContent='OFFLINE · ¥0');
-  const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;if(standalone){$('#installState').textContent='追加済み';$('#installHelpBtn').textContent='ホーム画面から起動中';}
-  if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(()=>{});
-  applyTheme(state.theme,false);refreshAirReadout();renderLogs();renderDelta();reminderCheck();setInterval(reminderCheck,60000);
+  $('#resetBtn').onclick=()=>{if(confirm('判定履歴・運転履歴・学習・再確認データをすべて削除しますか？')){state.logs=[];state.activeRun=null;state.runHistory=[];state.reminder=null;state.lastSavedId=null;['aj_logs','aj_active_run','aj_run_history','aj_reminder'].forEach(k=>localStorage.removeItem(k));renderActiveRun();renderRunInsight();renderLogs();reminderCheck();toast('削除した');}};
+  window.addEventListener('online',()=>$('#offlineStatus').textContent='LOCAL · ¥0');window.addEventListener('offline',()=>$('#offlineStatus').textContent='OFFLINE · ¥0');const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;if(standalone){$('#installState').textContent='追加済み';$('#installHelpBtn').textContent='ホーム画面から起動中';}if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(()=>{});
+  syncRunForm();applyTheme(state.theme,false);refreshAirReadout();renderActiveRun();renderRunInsight();renderLogs();reminderCheck();setInterval(()=>{renderActiveRun();renderRunInsight();reminderCheck();},60000);
 })();
 </script>
 </body>
